@@ -4,7 +4,7 @@ import os
 import hashlib
 
 app = Flask(__name__)
-app.secret_key = 'vuln_machine_secret_2024'
+app.secret_key = 'vuln_machine_secret'
 
 DATABASE = 'vulnerable.db'
 
@@ -58,7 +58,7 @@ def c1_level1():
         try:
             db = sqlite3.connect(DATABASE)
             cur = db.cursor()
-            # ⚠️ Completamente vulnerable
+            # Completamente vulnerable
             query = f"SELECT * FROM users WHERE username='{user}' AND password='{pwd}'"
             cur.execute(query)
             row = cur.fetchone()
